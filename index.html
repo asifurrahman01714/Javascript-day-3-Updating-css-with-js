@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#Day3 of Javascript30: Spacing|| Blur || & changing Base colour</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Update CSS Variables with <span class="h1">JS</span></h2>
+    <div class="controls">
+        <label for="spacing">Spacing:</label>
+        <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px" id="">
+        
+        <label for="blur">Blur:</label>
+        <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px" id="">
+
+        <label for="base">Base Color</label>
+        <input type="color" name="base" value="#ffc600" id="">
+    </div>
+
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Final_circulation_of_the_Kaaba.jpg" alt="">
+
+ <script>
+     const inputs = document.querySelectorAll(".controls input");
+
+     function hangdeUpdate() {
+         const suffix = this.dataset.sizing || "";
+         document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+
+     }
+     inputs.forEach(input => input.addEventListener('change', hangdeUpdate));
+     inputs.forEach(input => input.addEventListener('mousemove', hangdeUpdate));
+
+ </script>
+</body>
+</html>
